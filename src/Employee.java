@@ -6,11 +6,14 @@ public abstract class Employee {
     private String lastName;
     private int id;
 
-    public Employee(){ //default constructor
+    public Employee(){
       this("ploni","almoni",0);
     }
 
     public Employee(String first, String last, int id){ //full constructor
+        if(id<=0) {
+            throw new IllegalArgumentException("id needs to be positive");
+        }
         firstName = first;
         lastName = last;
         this.id = id;
@@ -64,7 +67,7 @@ public abstract class Employee {
                 '}';
     }
 
-    public abstract void earnings();
+    public abstract float earnings();
 
 
 }
